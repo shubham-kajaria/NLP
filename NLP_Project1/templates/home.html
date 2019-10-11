@@ -1,0 +1,56 @@
+<html>
+<head>
+
+<title> Python button script </title>
+
+</head>
+<body>
+
+<form action="/external/" method="post">
+<fieldset>
+<legend>Text Translation & Summarization</legend>
+{% csrf_token %}
+
+<br>
+Input Text:<br>
+Text must have more than one sentence<br><br>
+<!-- <input type="text" name="param" value="Enter Text " required><br><br> -->
+
+<textarea id="text1" name="param" style="width:400px; height:200px;" required></textarea><br><br>
+
+
+{% if data0 %}
+	<br><br>
+	<b>Text Summarizing using Word Frequency Distribution</b><br><br>
+	{{data0}}
+	<br><br><br><br>
+{% endif %}
+
+
+{% if data1 %}
+	<br><br>
+	<b>Text Summarizing using Gensim</b><br><br>
+	{{data1}}
+	<br><br><br><br>
+{% endif %}
+
+<!-- {% for item in data2 %}
+    <b>Text Summarizing using LexRank</b><br><br>
+    {{item}}<br><br><br><br>
+{% endfor %}
+ -->
+
+{% if data2 %}
+	<br><br>
+	<b>Text Summarizing using LexRank Sumy</b><br><br>
+	{{data2}}
+	<br><br><br><br>
+{% endif %}
+
+<input type="submit" id="say" value="Execute External Python Script">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</fieldset>
+</form>
+
+</body>
+</html>
